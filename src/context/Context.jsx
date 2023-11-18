@@ -15,7 +15,7 @@ export function Context({ children }) {
     id: faker.string.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
-    image: faker.image.avatar(),
+    image: faker.image.urlPicsumPhotos(),
     inStock: faker.helpers.arrayElements([0, 3, 5, 6, 7], 1),
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.helpers.arrayElements([1, 2, 3, 4, 5], 1),
@@ -28,5 +28,5 @@ export function Context({ children }) {
     cart: [],
   });
 
-  return <Cart.Provider value={[state, dispatch]}>{children}</Cart.Provider>;
+  return <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>;
 }

@@ -1,7 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { Form } from "react-bootstrap";
+import Rating from "./Rating";
 
 function Filters() {
+  const [rating, setRating] = useState(3);
+
+  const cursor = {
+    cursor: "pointer",
+  };
   return (
     <div className="filters">
       <span className="title">Filter Product</span>
@@ -17,10 +24,10 @@ function Filters() {
       <span>
         <Form.Check inline label="Fast Delivery Only" name="group1" type="checkbox" id={`inline-4`} />
       </span>
-      {/* <span>
+      <span>
         <label style={{ paddingRight: 10 }}>Rating</label>
-        <Rating rating={byRating} />
-      </span> */}
+        <Rating rating={rating} style={cursor} onClick={(index) => setRating(index + 1)} />
+      </span>
       <button variant="light">Clear Filter</button>
     </div>
   );
